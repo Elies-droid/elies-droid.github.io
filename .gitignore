@@ -1,0 +1,16 @@
+# Sources et pieces de travail : ne doivent jamais devenir publiques.
+# uploads/ contient les CV complets et l'export LinkedIn brut (coordonnees personnelles).
+uploads/
+
+# Design system non utilise par le site.
+_ds/
+
+# Fichiers de travail locaux.
+.thumbnail
+CLAUDE.md
+.claude/
+
+# Systeme
+.DS_Store
+Thumbs.db
+desktop.ini
