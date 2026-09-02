@@ -1,6 +1,6 @@
 # elies-droid.github.io
 
-Site de présentation personnelle d'**Elies Mlayah** — fondateur d'EM Conseil Invest (conseil en
+Site de présentation personnelle d'**Elies Mlayah**, fondateur d'EM Conseil Invest (conseil en
 investissement et stratégie patrimoniale) et Sales Specialist France chez Certu Systems EMEA.
 
 **En ligne : https://elies-droid.github.io/**
@@ -11,7 +11,7 @@ Parcours professionnel, formations et certifications avec les justificatifs cons
 
 | Chemin | Rôle |
 | --- | --- |
-| `index.html` | La page entière — HTML, CSS et JavaScript, sans dépendance ni étape de build |
+| `index.html` | La page entière : HTML, CSS et JavaScript, sans dépendance ni étape de build |
 | `photo.png` | Portrait |
 | `diplomas/` | Certificats en PDF liés depuis la section Education |
 | `404.html` | Page d'erreur |
