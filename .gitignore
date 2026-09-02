@@ -20,3 +20,5 @@ desktop.ini
 # de Conciergerie Solea. A ne publier qu'apres validation explicite d'Elies.
 papers/*.pdf
 papers/*.docx
+# Version publique du memoire : liens vers le Drive prive supprimes (source + relations).
+!papers/memoire-vae-escaet-mlayah-elies.pdf
