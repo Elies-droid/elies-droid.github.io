@@ -14,3 +14,9 @@ CLAUDE.md
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Le memoire contient 16 liens vers un Drive prive (contrat de prestation, funnel CRM,
+# avis de valeur proprietaire, tableaux de bord KPI Hostaway) et les chiffres internes
+# de Conciergerie Solea. A ne publier qu'apres validation explicite d'Elies.
+papers/*.pdf
+papers/*.docx
