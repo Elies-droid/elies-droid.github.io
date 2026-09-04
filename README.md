@@ -1,11 +1,13 @@
 # elies-droid.github.io
 
-Site de présentation personnelle d'**Elies Mlayah**, fondateur d'EM Conseil Invest (conseil en
-investissement et stratégie patrimoniale) et Sales Specialist France chez Certu Systems EMEA.
+Site de présentation personnelle d'**Elies Mlayah** : recherche quantitative sur futures
+indiciels CME (MHE Capital) et conseil en investissement et stratégie patrimoniale
+(EM Conseil Invest).
 
 **En ligne : https://elies-droid.github.io/**
 
-Parcours professionnel, formations et certifications avec les justificatifs consultables en PDF.
+Série de working papers, parcours professionnel, formations et certifications avec les
+justificatifs consultables en PDF.
 
 ## Contenu du dépôt
 
@@ -30,8 +32,30 @@ correspondante dans `index.html` :
 <span class="pdf"><a href="diplomas/mon-certificat.pdf">Certificate (PDF)</a></span>
 ```
 
-Pour publier un article : décommenter la section `writing` et sa ligne d'onglet dans `index.html`,
-puis dupliquer un bloc `<article class="paper">`.
+### Faire avancer un papier de la section Research
+
+Chaque papier a un statut, qui se change dans son bloc `<article class="paper">` :
+
+1. **En préparation** (état par défaut) :
+   ```html
+   <span class="status">In preparation</span>
+   ```
+2. **Brouillon communicable** : le lecteur écrit pour l'obtenir.
+   ```html
+   <span class="status on-request">Draft &mdash; PDF on request</span>
+   ```
+3. **Publié** : déposer le PDF dans `papers/`, puis remplacer toute la ligne
+   `<p class="paper-meta">` par :
+   ```html
+   <p class="links"><a href="papers/nom-du-papier.pdf">Read the paper (PDF)</a></p>
+   ```
+
+`papers/*.pdf` est ignoré par défaut : ajouter une exception dans `.gitignore` pour chaque
+PDF destiné à la publication, après vérification qu'il ne contient ni donnée privée ni lien
+vers un Drive personnel.
+
+Pour publier un texte hors marchés : dupliquer un bloc `<article class="paper">` dans la
+section `writing`.
 
 ## Contact
 

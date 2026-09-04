@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elies Mlayah · Founder, EM Conseil Invest · Sales Specialist France</title>
-<meta name="description" content="Elies Mlayah · Founder of EM Conseil Invest (investment &amp; wealth strategy), Sales Specialist France at Certu Systems EMEA, former French Navy technician. Experience, education and writing.">
+<title>Elies Mlayah · Quantitative Research, MHE Capital · EM Conseil Invest</title>
+<meta name="description" content="Elies Mlayah · Quantitative research on CME index futures at MHE Capital, and investment &amp; wealth strategy advisory at EM Conseil Invest. Working papers on the validation of intraday systematic strategies.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#5b7fa6">
 <link rel="canonical" href="https://elies-droid.github.io/">
@@ -12,8 +12,8 @@
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Elies Mlayah">
 <meta property="og:url" content="https://elies-droid.github.io/">
-<meta property="og:title" content="Elies Mlayah · Founder, EM Conseil Invest · Sales Specialist France">
-<meta property="og:description" content="Founder of EM Conseil Invest (investment &amp; wealth strategy) and Sales Specialist France at Certu Systems EMEA. Former French Navy armament and rescue-equipment technician. Experience, education and certifications.">
+<meta property="og:title" content="Elies Mlayah · Quantitative Research, MHE Capital">
+<meta property="og:description" content="Systematic futures research on CME index futures from tick-level data, under a fixed validation protocol. Also founder of EM Conseil Invest. Former French Navy armament and rescue-equipment technician.">
 <meta property="og:image" content="https://elies-droid.github.io/photo.png">
 <meta property="og:image:width" content="500">
 <meta property="og:image:height" content="500">
@@ -21,8 +21,8 @@
 <meta property="profile:first_name" content="Elies">
 <meta property="profile:last_name" content="Mlayah">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Elies Mlayah · Founder, EM Conseil Invest">
-<meta name="twitter:description" content="Founder of EM Conseil Invest and Sales Specialist France at Certu Systems EMEA. Toulouse, France.">
+<meta name="twitter:title" content="Elies Mlayah · Quantitative Research, MHE Capital">
+<meta name="twitter:description" content="Systematic futures research on CME index futures. Founder of EM Conseil Invest. Toulouse, France.">
 <meta name="twitter:image" content="https://elies-droid.github.io/photo.png">
 <script type="application/ld+json">
 {
@@ -32,11 +32,15 @@
   "url": "https://elies-droid.github.io/",
   "image": "https://elies-droid.github.io/photo.png",
   "email": "mlayahelies1@gmail.com",
-  "jobTitle": ["Founder, EM Conseil Invest", "Sales Specialist France, Certu Systems EMEA"],
+  "jobTitle": ["Quantitative Research, MHE Capital", "Founder, EM Conseil Invest",
+               "Sales Specialist France, Certu Systems EMEA"],
   "worksFor": [
+    { "@type": "Organization", "name": "MHE Capital" },
     { "@type": "Organization", "name": "EM Conseil Invest" },
     { "@type": "Organization", "name": "Certu Systems EMEA" }
   ],
+  "knowsAbout": ["Systematic trading", "Futures markets", "Market microstructure",
+                 "Quantitative research methodology", "Market making"],
   "address": { "@type": "PostalAddress", "addressLocality": "Toulouse", "addressCountry": "FR" },
   "knowsLanguage": ["fr", "ar", "en", "es"],
   "alumniOf": [
@@ -167,6 +171,17 @@
   ul.edu .deg{flex:1 1 24rem;}
   ul.edu .pdf{flex:none;font-size:.85rem;white-space:nowrap;}
   .soon{color:var(--muted);font-style:italic;}
+  /* Statut d'un papier : in-preparation → on-request → lien PDF. */
+  .status{
+    display:inline-block;vertical-align:.05em;
+    font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    padding:.12rem .55rem;border-radius:999px;
+    border:1px solid var(--rule);background:var(--accent-tint);color:var(--accent-dark);
+  }
+  .status.on-request{border-color:var(--accent);}
+  article.paper.lead{border-left:3px solid var(--accent);}
+  .paper-meta{color:var(--muted);font-size:.9rem;margin:.35rem 0 0;}
+  .section-intro{margin:0 0 2rem;}
   article.paper{
     background:var(--surface);
     border:1px solid var(--rule);
@@ -232,8 +247,8 @@
     </figure>
     <div>
       <h1>Elies Mlayah</h1>
-      <p class="subtitle">Founder, EM Conseil Invest, Investment &amp; Wealth Strategy<br>
-      Sales Specialist France, Certu Systems EMEA · Toulouse, France</p>
+      <p class="subtitle">Quantitative Research, MHE Capital · Systematic Futures<br>
+      Founder, EM Conseil Invest · Toulouse, France</p>
     </div>
   </div>
 </header>
@@ -241,6 +256,7 @@
 <nav aria-label="Sections">
   <ul role="tablist">
     <li role="presentation"><a role="tab" id="tab-about" aria-controls="about" aria-selected="true" aria-current="true" href="#about">About</a></li>
+    <li role="presentation"><a role="tab" id="tab-research" aria-controls="research" aria-selected="false" href="#research">Research</a></li>
     <li role="presentation"><a role="tab" id="tab-experience" aria-controls="experience" aria-selected="false" href="#experience">Experience</a></li>
     <li role="presentation"><a role="tab" id="tab-education" aria-controls="education" aria-selected="false" href="#education">Education</a></li>
     <li role="presentation"><a role="tab" id="tab-writing" aria-controls="writing" aria-selected="false" href="#writing">Writing</a></li>
@@ -252,17 +268,27 @@
   <section id="about" class="active" role="tabpanel" tabindex="-1" aria-labelledby="tab-about">
     <h2>About</h2>
     <p>
-      I am the founder of EM Conseil Invest, an independent advisory practice in investment
-      and wealth strategy for individuals and entrepreneurs, and Sales Specialist France for
-      Certu Systems EMEA. Both roles rest on the same foundation: nearly seven years in the
-      French Navy (Marine Nationale) as an armament and rescue-equipment technician, where
-      precision, procedure and accountability were not optional. After the service, I applied
-      that discipline to commercial work: as an independent real estate sales agent with
-      IAD France and, alongside it, as an independent sales agent for OuiKey's connected
-      concierge services, before founding Conciergerie Soléa, a bespoke concierge company
-      on the Côte d'Azur. Training in finance and an MBA in tourism and travel
-      management (ESCAET) tie the threads together: understanding what clients need,
-      structuring the offer rigorously, and following through on every commitment.
+      I run quantitative research at MHE Capital, my own systematic futures operation, and
+      advise private clients on investment and wealth strategy through EM Conseil Invest.
+    </p>
+    <p>
+      Both rest on the same foundation: nearly seven years in the French Navy
+      (Marine Nationale) as an armament and rescue-equipment technician, ending as deputy
+      manager of the parachute and rescue-equipment workshop aboard the aircraft carrier
+      Charles de Gaulle. I was a certifier for return-to-service &mdash; the person who signs
+      that a piece of equipment is fit to fly. Nothing leaves the workshop on a feeling.
+    </p>
+    <p>
+      That is the discipline I bring to markets. At MHE Capital I research intraday
+      strategies on CME index futures from tick-level data, under a validation protocol built
+      on pre-registration, out-of-sample splits, multiple-testing correction and surrogate
+      testing. Most of what I test, I refute &mdash; the <a href="#research">research</a> is
+      largely a record of ideas I killed, and of how I killed them. Execution runs on my own
+      stack: Python and C# strategies routed through Rithmic from a Chicago execution server.
+    </p>
+    <p>
+      At EM Conseil Invest the same principle applies to private clients: structure the offer
+      rigorously, state every cost up front, and commit only to what can be evidenced.
     </p>
     <h3 style="margin:1.75rem 0 .4rem">Languages</h3>
     <p style="margin:0">French (native) · Arabic (native / bilingual) · English (full professional) · Spanish (limited working)</p>
@@ -274,8 +300,97 @@
     </ul>
   </section>
 
+  <section id="research" role="tabpanel" tabindex="-1" aria-labelledby="tab-research">
+    <h2>Research</h2>
+    <p class="section-intro">Independent research on intraday systematic strategies for
+    CME index futures, run on tick-level and full-depth order-book data under a fixed
+    validation protocol. Most of it is negative: what follows is largely a record of
+    ideas that did not survive testing, and of the tests that killed them. Papers are
+    posted as they are finalised &mdash; in the meantime, write to
+    <a href="mailto:mlayahelies1@gmail.com">mlayahelies1@gmail.com</a> for a draft.</p>
+
+    <!-- Statut d'un papier, dans l'ordre : 
+         1. en cours   : <span class="status">In preparation</span>
+         2. brouillon  : <span class="status on-request">Draft — PDF on request</span>
+         3. publie     : remplacer tout le <p class="paper-meta"> par
+            <p class="links"><a href="papers/NOM.pdf">Read the paper (PDF)</a></p>
+         et deposer le PDF dans papers/. -->
+
+    <article class="paper lead">
+      <h3>A Validation Doctrine for Retail-Scale Systematic Futures Research</h3>
+      <p class="paper-meta">Methodology · foundation paper · <span class="status">In preparation</span></p>
+      <p>The protocol every other paper in this series is held to. Pre-registration of the hypothesis before the data is touched, a strict in-sample / out-of-sample split, correction for the number of variants tried, and surrogate testing to establish what a null result looks like on the same series. The standard is deliberately hard to clear: the burden of proof sits with the signal, never with the sceptic.</p>
+    </article>
+
+    <article class="paper">
+      <h3>Order Flow Does Not Predict: A Systematic Refutation of Eight Intraday Signals on NQ Futures</h3>
+      <p class="paper-meta">Signal research · refutation · <span class="status">In preparation</span></p>
+      <p>Eight intraday order-flow signals — DeltaSwapRSI, absorption, CVD/price divergence, book imbalance, sweeps and an RSI 65/35 variant among them — tested across two seasons of MNQ and NQ data against surrogate series. None survives. Each either fails to clear transaction costs or is accounted for by drift tails in a rising regime. The paper records what was tested, how, and precisely where each signal breaks.</p>
+    </article>
+
+    <article class="paper">
+      <h3>Two Backtest Bugs That Manufactured Edge</h3>
+      <p class="paper-meta">Research engineering · <span class="status">In preparation</span></p>
+      <p>Two defects in my own research harness, each of which produced something that looked like an edge. An NT8 feed handler silently dropped roughly 42% of trades and returned fictitious profit factors; an ORB2 parameter grid returned identical P&amp;L vectors across configurations that were supposed to be distinct. Both are described in full, together with the invariant assertion now permanently built into the harness to catch their recurrence.</p>
+    </article>
+
+    <article class="paper">
+      <h3>Distance-Matched Placebo Testing: Refuting the Gap-Fill Edge</h3>
+      <p class="paper-meta">Methodology · refutation · <span class="status">In preparation</span></p>
+      <p>A short methodological note. The apparent gap-fill edge is tested against a placebo built to match the distance distribution of real gaps — the counterfactual a naive test leaves out. Once the comparison is matched, the effect does not survive.</p>
+    </article>
+
+    <article class="paper">
+      <h3>Spread Dynamics on MNQ: Why Pure Spread Capture Is Not Viable at Retail Scale</h3>
+      <p class="paper-meta">Microstructure · measurement · <span class="status">In preparation</span></p>
+      <p>A measurement, then a decision. The MNQ spread sits at one tick roughly 42% of the time, with a median of two, against round-turn costs of two ticks. Pure spread capture is arithmetically closed at retail scale. The paper sets out the measurement and the move to a directional grid that followed from it.</p>
+    </article>
+
+    <article class="paper">
+      <h3>How Many Ticks Is a Book-Imbalance Signal Actually Worth on ES and NQ?</h3>
+      <p class="paper-meta">Microstructure · execution cost · <span class="status">In preparation</span></p>
+      <p>A book-imbalance signal, I_N, measured on full-depth MBO data for ES and NQ. The signal predicts — and taker execution consumes what it predicts. The paper quantifies, in ticks, the distance between statistically significant and worth trading.</p>
+    </article>
+
+    <article class="paper">
+      <h3>GLFT Market Making: Anchoring the Infinite-Horizon Solution and Why (T−t) Is a Trap</h3>
+      <p class="paper-meta">Market making · calibration · <span class="status">In preparation</span></p>
+      <p>From Avellaneda-Stoikov to the Guéant-Lehalle-Fernandez-Tapia infinite-horizon solution, with A and κ calibrated on live flow (γ = 1, A = 760.8, κ = 189.67). Includes an unresolved anomaly — the reservation price sitting below the mid while inventory is under-weighted — published as it stands rather than smoothed away.</p>
+    </article>
+
+    <article class="paper">
+      <h3>The MM Grid</h3>
+      <p class="paper-meta">Market making · English edition · <span class="status">In preparation</span></p>
+      <p>An English edition of a paper first written in French, prepared for SSRN deposit so that the work carries a citable reference.</p>
+    </article>
+
+    <article class="paper">
+      <h3>Latency Economics for a Retail-Scale Operation</h3>
+      <p class="paper-meta">Infrastructure · <span class="status">In preparation</span></p>
+      <p>Measured round-trip latencies — 3.2 ms to Binance and 3.4 ms to MEXC from Tokyo, against 77–88 ms from France, and 0.52 ms to the CME from Chicago — and what each tier permits or forecloses. Infrastructure is treated as a constraint on strategy selection, not as a logistics detail.</p>
+    </article>
+
+    <article class="paper">
+      <h3>Edge Decay: The Overnight Drift Case</h3>
+      <p class="paper-meta">Review · life cycle of an edge · <span class="status">In preparation</span></p>
+      <p>The overnight drift as a case study in how long an edge lasts: the phenomenon, its documented dissipation after 2021, and what that implies about the shelf life of any published result. Review and data.</p>
+    </article>
+  </section>
+
   <section id="experience" role="tabpanel" tabindex="-1" aria-labelledby="tab-experience">
     <h2>Experience</h2>
+
+    <article class="card">
+      <h3>Quantitative Research, Systematic Futures</h3>
+      <p class="org">MHE Capital, Toulouse <span class="dates">· ongoing</span></p>
+      <p>Independent research operation on intraday strategies for CME index futures.
+      Signal research on tick-level and full-depth order-book data, backtesting and
+      execution infrastructure written in Python and C#, order routing through Rithmic
+      from a Chicago execution server. Every candidate strategy is held to a fixed
+      validation protocol &mdash; pre-registration, out-of-sample splits, correction for
+      multiple testing and surrogate testing &mdash; before it is allowed to trade.
+      Published as a working-paper series under <a href="#research">Research</a>.</p>
+    </article>
 
     <article class="card">
       <h3>Founder, Investment &amp; Wealth Strategy Advisory</h3>
@@ -345,12 +460,6 @@
       munitions worker and team leader.</p>
     </article>
 
-    <article class="card">
-      <h3>Night Shelf Stocker (student job)</h3>
-      <p class="org">Super U / U Express (Groupe Bourassin), Toulouse area <span class="dates">· July 2017 - August 2017</span></p>
-      <p>Night shelf-stocking during the summer as a student.</p>
-    </article>
-
   </section>
 
   <section id="education" role="tabpanel" tabindex="-1" aria-labelledby="tab-education">
@@ -390,6 +499,8 @@
 
   <section id="writing" role="tabpanel" tabindex="-1" aria-labelledby="tab-writing">
     <h2>Writing</h2>
+    <p class="section-intro">Longer-form work outside markets. Research on futures is
+    under <a href="#research">Research</a>.</p>
     <article class="paper">
       <h3>Designing and running sustainable tourism operations, in France and abroad</h3>
       <p class="dates">Master's thesis (VAE), 2025 &middot; ESCAET, MBA Manager of Tourism &amp; Travel Activities (level 7)</p>
