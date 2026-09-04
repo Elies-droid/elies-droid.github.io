@@ -68,7 +68,35 @@
   }
   .wrap{max-width:740px;margin:0 auto;padding:0 1.25rem;}
   /* ── Header ── */
-  header{padding:5rem 0 2.75rem;}
+  header{
+    position:relative;
+    isolation:isolate;
+    background:#090d11;
+    padding:5rem 0 2.75rem;
+  }
+  /* Bandeau : l'image est attenuee a gauche, ou se posent le portrait et le nom,
+     et laissee lisible a droite, sur l'avenue. */
+  header::before{
+    content:"";
+    position:absolute;inset:0;z-index:-1;
+    background-image:
+      linear-gradient(100deg,
+        rgba(9,13,17,.78) 0%,
+        rgba(9,13,17,.62) 45%,
+        rgba(9,13,17,.16) 82%,
+        rgba(9,13,17,.34) 100%),
+      url("banner.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+  @media (max-width:720px){
+    header::before{
+      background-image:
+        linear-gradient(180deg, rgba(9,13,17,.60), rgba(9,13,17,.76)),
+        url("banner.jpg");
+    }
+  }
   .id{display:flex;gap:1.75rem;align-items:center;flex-wrap:wrap;}
   .photo{
     width:170px;height:170px;flex:none;
@@ -85,6 +113,12 @@
     font-weight:700;letter-spacing:-.01em;color:var(--ink);
   }
   .subtitle{margin:0;color:var(--muted);font-size:1rem;}
+  header h1{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.55);}
+  header .subtitle{color:#cbd6e0;text-shadow:0 1px 3px rgba(0,0,0,.55);}
+  header .photo{
+    border-color:rgba(255,255,255,.45);
+    box-shadow:0 8px 28px rgba(0,0,0,.45);
+  }
   /* ── Tabs ── */
   nav{border-bottom:1px solid var(--rule);}
   nav{margin-top:.5rem;}
@@ -408,7 +442,7 @@
   <div class="wrap">
     <p>Elies Mlayah · <a href="mailto:contact@em-conseil-invest.fr">contact@em-conseil-invest.fr</a> ·
     <a href="https://www.linkedin.com/in/elies-mlayah-69a542246/">LinkedIn</a> · Toulouse, France</p>
-    <p>© 2026 Elies Mlayah. All rights reserved.</p>
+    <p>© 2026 Elies Mlayah. All rights reserved. <span style="opacity:.75">Header photograph by <a href="https://unsplash.com/photos/cXU6tNxhub0">Andre Benz</a> on <a href="https://unsplash.com/">Unsplash</a>.</span></p>
   </div>
 </footer>
 

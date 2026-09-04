@@ -22,3 +22,7 @@ papers/*.pdf
 papers/*.docx
 # Version publique du memoire : liens vers le Drive prive supprimes (source + relations).
 !papers/memoire-vae-escaet-mlayah-elies.pdf
+
+# Wallpaper source Unsplash en pleine resolution (6,4 Mo) : seul banner.jpg,
+# redimensionne en 1920 px, est publie.
+andre-benz-*-unsplash.jpg

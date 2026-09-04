@@ -13,6 +13,7 @@ Parcours professionnel, formations et certifications avec les justificatifs cons
 | --- | --- |
 | `index.html` | La page entière : HTML, CSS et JavaScript, sans dépendance ni étape de build |
 | `photo.png` | Portrait |
+| `banner.jpg` | Fond du bandeau d'en-tête : photographie d'Andre Benz sur Unsplash, recadrée en 1920×600 et atténuée en CSS. La source pleine résolution reste hors du dépôt. |
 | `diplomas/` | Certificats en PDF liés depuis la section Education |
 | `404.html` | Page d'erreur |
 | `robots.txt`, `sitemap.xml` | Indexation |
