@@ -36,15 +36,11 @@ correspondante dans `index.html` :
 
 Chaque papier a un statut, qui se change dans son bloc `<article class="paper">` :
 
-1. **En préparation** (état par défaut) :
+1. **Brouillon** (état par défaut) : le lecteur écrit pour l'obtenir.
    ```html
-   <span class="status">In preparation</span>
+   <span class="status">PDF on request</span>
    ```
-2. **Brouillon communicable** : le lecteur écrit pour l'obtenir.
-   ```html
-   <span class="status on-request">Draft &mdash; PDF on request</span>
-   ```
-3. **Publié** : déposer le PDF dans `papers/`, puis remplacer toute la ligne
+2. **Publié** : déposer le PDF dans `papers/`, puis remplacer toute la ligne
    `<p class="paper-meta">` par :
    ```html
    <p class="links"><a href="papers/nom-du-papier.pdf">Read the paper (PDF)</a></p>
