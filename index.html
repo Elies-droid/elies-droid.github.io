@@ -8,9 +8,13 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#5b7fa6">
 <link rel="canonical" href="https://elies-droid.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%235b7fa6'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23e5ebf2' text-anchor='middle'%3EEM%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%235b7fa6'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23e5ebf2' text-anchor='middle'%3EEM%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Elies Mlayah">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
 <meta property="og:url" content="https://elies-droid.github.io/">
 <meta property="og:title" content="Elies Mlayah · Boost Pilotage · EM Conseil Invest">
 <meta property="og:description" content="Management control and treasury steering for small and mid-sized companies, investment and wealth strategy advisory, and business development for a supply chain software vendor on the French market. Former French Navy armament and rescue-equipment technician.">
@@ -43,7 +47,7 @@
                  "Investment advisory", "Wealth strategy", "Supply chain software",
                  "Quantitative research methodology", "Market microstructure", "Futures markets"],
   "address": { "@type": "PostalAddress", "addressLocality": "Toulouse", "addressCountry": "FR" },
-  "knowsLanguage": ["fr", "ar", "en", "es"],
+  "knowsLanguage": ["fr", "ar", "en"],
   "alumniOf": [
     { "@type": "EducationalOrganization", "name": "ESCAET" }
   ],
@@ -84,22 +88,40 @@
   header::before{
     content:"";
     position:absolute;inset:0;z-index:-1;
+    /* Filet de securite : si image-set n'est pas compris, toute la declaration
+       background-image tombe. Sans cette couleur, le titre blanc se retrouverait
+       sur le fond clair de la page, donc illisible. */
+    background-color:#0d1218;
     background-image:
       linear-gradient(100deg,
         rgba(9,13,17,.78) 0%,
         rgba(9,13,17,.62) 45%,
         rgba(9,13,17,.16) 82%,
         rgba(9,13,17,.34) 100%),
-      url("banner.jpg");
+      image-set(url("banner-1440.webp") type("image/webp"),
+                url("banner.jpg") type("image/jpeg"));
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
+  }
+  @media (min-width:1441px){
+    header::before{
+      background-image:
+        linear-gradient(100deg,
+        rgba(9,13,17,.78) 0%,
+        rgba(9,13,17,.62) 45%,
+        rgba(9,13,17,.16) 82%,
+        rgba(9,13,17,.34) 100%),
+        image-set(url("banner-1920.webp") type("image/webp"),
+                  url("banner.jpg") type("image/jpeg"));
+    }
   }
   @media (max-width:720px){
     header::before{
       background-image:
         linear-gradient(180deg, rgba(9,13,17,.60), rgba(9,13,17,.76)),
-        url("banner.jpg");
+        image-set(url("banner-960.webp") type("image/webp"),
+                  url("banner.jpg") type("image/jpeg"));
     }
   }
   .id{display:flex;gap:1.75rem;align-items:center;flex-wrap:wrap;}
@@ -136,7 +158,7 @@
   nav a:hover{color:var(--accent-dark);background:var(--accent-tint);}
   nav a[aria-current="true"]{color:var(--accent-dark);border-bottom-color:var(--accent);}
   a{color:var(--accent-dark);}
-  a:hover{color:var(--accent);}
+  a:hover{color:var(--accent-dark);text-decoration:underline;}
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
   ::selection{background:var(--accent-tint);}
   /* ── Sections as tab panels ── */
@@ -226,16 +248,28 @@
   html.no-js section + section{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--rule);}
   /* ── Impression : un recruteur imprime la page, il doit tout avoir ── */
   @media print{
+    /* Le bandeau photographique ne s'imprime pas : sans ce bloc, le nom et les
+       intitules sortaient en blanc sur blanc, donc invisibles sur le papier. */
+    header{background:#fff;padding:1.5rem 0 1rem;}
+    header::before{display:none !important;}
+    h1{color:#000;}
+    .subtitle{color:#333;}
+    .photo{border-color:#999;}
     nav{display:none;}
     section{display:block !important;}
     section + section{margin-top:1.5rem;page-break-inside:auto;}
     .card,article.paper{break-inside:avoid;border-color:#ccc;}
     body{background:#fff;color:#000;font-size:11pt;}
     a{color:#000;text-decoration:underline;}
-    ul.edu .pdf a::after{content:" (" attr(href) ")";font-size:.75em;color:#555;}
+    ul.edu .pdf a::after,
+    article.paper .links a::after{content:" (https://elies-droid.github.io/" attr(href) ")";font-size:.75em;color:#555;}
+    footer a[href^="http"]::after{content:" (" attr(href) ")";font-size:.75em;color:#555;}
     footer{border-top:1px solid #ccc;}
   }
 </style>
+<script>/* Retire des le head : retire en fin de page, la classe provoquait un
+   decalage de mise en page au chargement (CLS mesure a 0,065). */
+document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
 
@@ -267,48 +301,60 @@
   <section id="about" class="active" role="tabpanel" tabindex="-1" aria-labelledby="tab-about">
     <h2>About</h2>
     <p>
-      I live and work in Toulouse. I run two advisory practices, do business development for a
-      software vendor on the French market, and carry out quantitative research on my own
-      account.
+      I live and work in Toulouse, across four activities. I founded Boost Pilotage and
+      EM Conseil Invest, two advisory practices with different clients. I do business
+      development for a supply chain software vendor. And I run a research programme on
+      market data on my own account.
     </p>
     <p>
-      Boost Pilotage works with small and mid-sized companies on management control and
-      treasury steering: reading the figures a business already produces, turning them into
-      the indicators its manager decides on, and following the cash position month by month.
-      EM Conseil Invest advises individuals and entrepreneurs on investment and wealth
-      strategy. The two stay distinct. One works on a company, its management and its cash;
-      the other on a person and their assets. At Certu Systems EMEA I do business development on
-      the French market for a supply chain software vendor.
+      Boost Pilotage works on the figures of very small and mid-sized companies. It opens with
+      an audit of profitability, cash position, cost structure and client concentration, then
+      settles into a monthly review: the dashboard, the month's variances, the deadlines coming
+      up, and the actions agreed and tracked. I carry out the audits and hold the monthly
+      meetings myself. I am also co-founder of the treasury activity attached to it, which
+      places a company's cash surplus. The investment recommendations there are issued by a
+      registered adviser, not by me.
     </p>
     <p>
-      I served nearly seven years in the French Navy (Marine Nationale) as an armament and
-      rescue-equipment technician, from airborne munitions for the Rafale Marine at Landivisiau
-      to level-2 maintenance of individual and collective rescue equipment, ending as deputy
-      manager of the parachute and rescue-equipment workshop aboard the aircraft carrier
-      Charles de Gaulle. There I was a certifier for return to service, the person who signs
-      that a piece of equipment is fit to fly.
+      EM Conseil Invest is the second practice, and it works on people rather than companies:
+      investment and wealth strategy for individuals and entrepreneurs. I keep the two apart on
+      purpose. A company's working capital and a household's savings are not the same problem,
+      and they do not take the same advice.
     </p>
     <p>
-      Business development is the thread. I have sold in my own name before selling for
-      others: property with IAD France, connected concierge services with OuiKey, and then a
-      company of my own. I created Conciergerie Soléa on the French Riviera, ran it for a year
-      and sold it in October 2025, handling quotes and invoicing, coordination of service
-      providers, service quality, prospecting and the client relationship throughout. I then
-      took that company as an object of study. The thesis that came out of it asks under what conditions
-      an independent operator holds its ground against platform-driven networks and against
-      owner self-management, and answers from market analysis of the Hyères, Giens and Toulon
-      micro-markets, field observation, and the company's own operating data over its first
-      year. It is the research work attached to my ESCAET MBA, a level 7 RNCP title obtained
-      through validation of prior experience (VAE), and can be read in full under
-      <a href="#writing">Writing</a>.
+      At Certu Systems EMEA I do business development on the French market for a supply chain
+      software vendor: building the pipeline, prospecting, running discovery with operations
+      and finance teams, and carrying deals through to close.
     </p>
     <p>
-      Since December 2024 I have run an independent research programme on intraday systematic
-      strategies for CME index futures and crypto venues, from tick-level and full-depth
-      order-book data. Ten working papers are in preparation. Two of them are refutations of
-      signals I had tested myself, and one describes two defects in my own research harness
-      that had manufactured an apparent edge. They are listed under
-      <a href="#research">Research</a>.
+      Since December 2024 I have also run a research programme on intraday systematic strategies
+      for CME index futures and crypto venues, from tick-level and full-depth order-book data.
+      Ten working papers are in preparation. Two are refutations of signals I had tested myself,
+      and one documents two defects in my own research harness that had manufactured an apparent
+      edge. They are listed under <a href="#research">Research</a>.
+    </p>
+    <p>
+      That order is recent. Before it, I spent nearly seven years in the French Navy
+      (Marine Nationale) as an armament and rescue-equipment technician, from airborne munitions
+      for the Rafale Marine at Landivisiau to level-2 maintenance of individual and collective
+      rescue equipment, ending as deputy manager of the parachute and rescue-equipment workshop
+      aboard the aircraft carrier Charles de Gaulle. There I was a certifier for return to
+      service, the person who signs that a piece of equipment is fit to fly.
+    </p>
+    <p>
+      I then sold in my own name before selling for anyone else: property with IAD France and
+      connected concierge services with OuiKey. In November 2024 I created Conciergerie Soléa on
+      the French Riviera, ran it for a year and sold it in October 2025.
+    </p>
+    <p>
+      I took that company as a research subject rather than leaving it as a line on a CV. The
+      dissertation asks under what conditions an independent operator holds its ground against
+      platform-driven networks and against owner self-management, and answers from market
+      analysis of the Hyères, Giens and Toulon micro-markets, field observation, and eight
+      months of the company's own operating data, from January to August 2025, across six
+      management contracts. It is the research work attached to my ESCAET MBA, a level 7 RNCP
+      title (RNCP38491) obtained through validation of prior experience (VAE), and can be read
+      in full under <a href="#writing">Writing</a>.
     </p>
     <h3 style="margin:1.75rem 0 .4rem">Languages</h3>
     <p style="margin:0">French (native) · Arabic (native / bilingual) · English (full professional) · Spanish (limited working)</p>
@@ -365,8 +411,8 @@
       <p>Created, ran and sold a concierge company designing and selling bespoke services
       for private clients. Handled the full operation: client relations, coordination of
       service providers, quality follow-up and invoicing, alongside prospecting and building
-      lasting client relationships. Its first year is the
-      field material of the thesis published under <a href="#writing">Writing</a>.</p>
+      lasting client relationships. Its operating data is the
+      field material of the dissertation published under <a href="#writing">Writing</a>.</p>
     </article>
     <article class="card">
       <h3>Independent Sales Agent</h3>
@@ -411,8 +457,8 @@
     <h2>Research</h2>
     <p class="section-intro">Independent research on intraday systematic strategies for
     CME index futures and crypto venues, run on my own account from tick-level and full-depth
-    order-book data. Every hypothesis is pre-registered before the data is touched, split in
-    and out of sample, corrected for the number of variants tried, and compared against
+    order-book data. Every hypothesis is written down and frozen before the
+    out-of-sample window is opened, corrected for the number of variants tried, and compared against
     surrogate series. Ten working papers are in preparation; drafts are available on request
     at <a href="mailto:contact@boostpilotage.fr">contact@boostpilotage.fr</a>.</p>
 
@@ -425,7 +471,7 @@
     <article class="paper">
       <h3>A Validation Doctrine for Retail-Scale Systematic Futures Research</h3>
       <p class="paper-meta">Methodology · foundation paper · <span class="status">PDF on request</span></p>
-      <p>The protocol every other paper in this series is held to. Pre-registration of the hypothesis before the data is touched, a strict in-sample / out-of-sample split, correction for the number of variants tried, and surrogate testing to establish what a null result looks like on the same series.</p>
+      <p>The protocol every other paper in this series is held to. The hypothesis written down and frozen before the data is touched, a strict in-sample / out-of-sample split, correction for the number of variants tried, and surrogate testing to establish what a null result looks like on the same series.</p>
     </article>
 
     <article class="paper">
@@ -467,7 +513,7 @@
     <article class="paper">
       <h3>The MM Grid</h3>
       <p class="paper-meta">Market making · English edition · <span class="status">PDF on request</span></p>
-      <p>An English edition of a paper first written in French, prepared for SSRN deposit so that the work carries a citable reference.</p>
+      <p>An English edition of a paper first written in French.</p>
     </article>
 
     <article class="paper">
@@ -487,7 +533,7 @@
     <h2>Education</h2>
     <h3 style="margin:0 0 .5rem">Degrees</h3>
     <ul class="edu" style="margin-bottom:2rem">
-      <li><span class="year">2026</span><span class="deg">MBA, Tourism &amp; Travel Business Management (MBA Manager des Activités du Tourisme &amp; des Voyages) · ESCAET · level 7 RNCP title, obtained through VAE</span><span class="pdf"><a href="papers/memoire-vae-escaet-mlayah-elies.pdf">Thesis (PDF)</a></span></li>
+      <li><span class="year">2026</span><span class="deg">MBA, Tourism &amp; Travel Business Management (MBA Manager des Activités du Tourisme &amp; des Voyages) · ESCAET · level 7 RNCP title (RNCP38491), obtained through VAE</span><span class="pdf"><a href="papers/memoire-vae-escaet-mlayah-elies.pdf">Dissertation (PDF)</a></span></li>
       <li><span class="year">2015</span><span class="deg">Baccalauréat S, engineering sciences option (option SI)</span><span class="pdf soon">On request</span></li>
     </ul>
     <h3 style="margin:0 0 .5rem">Finance &amp; insurance certifications</h3>
@@ -523,15 +569,17 @@
     <p class="section-intro">Field research and notes outside markets. The working-paper
     series on systematic strategies is under <a href="#research">Research</a>.</p>
 
-    <h3 style="margin:0 0 1rem">Thesis</h3>
+    <h3 style="margin:0 0 1rem">Dissertation</h3>
     <article class="paper">
       <h3>Designing and running sustainable tourism operations, in France and abroad</h3>
-      <p class="dates">Thesis submitted for the VAE, academic year 2025 &middot; ESCAET, MBA Manager
-      des Activités du Tourisme et des Voyages, level 7 RNCP title</p>
-      <p>The thesis asks how an independent short-let concierge business can be built to be
-      profitable, sustainable and replicable. It draws on the first year of Conciergerie Soléa
-      on the French Riviera, combining market analysis, field observation and internal operating
-      data across the Hy&egrave;res, Giens and Toulon micro-markets. Its argument is that an independent
+      <p class="dates">Professional dissertation submitted for the VAE, academic year 2025
+      &middot; ESCAET, MBA Manager des Activités du Tourisme et des Voyages, level 7 RNCP title
+      (RNCP38491)</p>
+      <p>The dissertation asks how an independent short-let concierge business can be built
+      to be profitable, sustainable and replicable. It draws on Conciergerie Soléa on the French
+      Riviera, combining market analysis, field observation and eight months of internal
+      operating data, from January to August 2025 across six management contracts, in the
+      Hy&egrave;res, Giens and Toulon micro-markets. Its argument is that an independent
       operator holds its ground against both platform-driven networks and owner self-management
       only when three things hold together: operations standardised into documented, repeatable
       procedures; decisions driven by measured data rather than intuition; and a commercial pitch
@@ -539,7 +587,7 @@
       than on promises. The closing section examines the transfer of skills from military
       aeronautical supply chain to tourism management, and sets out the conditions under which
       such a model can be duplicated to other territories without diluting it.</p>
-      <p class="links"><a href="papers/memoire-vae-escaet-mlayah-elies.pdf">Read the thesis (PDF)</a>
+      <p class="links"><a href="papers/memoire-vae-escaet-mlayah-elies.pdf">Read the dissertation (PDF, in French)</a>
       <span class="soon">&middot; appendices available on request</span></p>
     </article>
 
@@ -581,14 +629,13 @@
   <div class="wrap">
     <p>Elies Mlayah · <a href="mailto:contact@boostpilotage.fr">contact@boostpilotage.fr</a> ·
     <a href="https://www.linkedin.com/in/elies-mlayah-69a542246/">LinkedIn</a> · Toulouse, France</p>
-    <p>© 2026 Elies Mlayah. All rights reserved. <span style="opacity:.75">Header photograph by <a href="https://unsplash.com/photos/cXU6tNxhub0">Andre Benz</a> on <a href="https://unsplash.com/">Unsplash</a>.</span></p>
+    <p>© 2026 Elies Mlayah. All rights reserved. <span>Header photograph by <a href="https://unsplash.com/photos/cXU6tNxhub0">Andre Benz</a> on <a href="https://unsplash.com/">Unsplash</a>.</span></p>
   </div>
 </footer>
 
 <script>
 /* Navigation par onglets : une section a la fois.
    Sans JavaScript, la classe .no-js laisse toutes les sections visibles. */
-document.documentElement.classList.remove('no-js');
 (function(){
   var links = Array.prototype.slice.call(document.querySelectorAll('nav a[role="tab"]'));
   var sections = document.querySelectorAll('main > section');
@@ -604,19 +651,26 @@ document.documentElement.classList.remove('no-js');
       a.setAttribute('tabindex', on ? '0' : '-1');
       if (on && moveFocus) a.focus();
     });
+    window.scrollTo(0, 0);
     return true;
   }
   links.forEach(function(a, i){
     a.addEventListener('click', function(e){
       e.preventDefault();
       var id = a.getAttribute('href').slice(1);
-      if (show(id)) { history.replaceState(null, '', '#' + id); window.scrollTo(0, 0); }
+      if (show(id)) history.replaceState(null, '', '#' + id);
     });
     a.addEventListener('keydown', function(e){
-      var step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-      if (!step) return;
+      /* role="tab" annonce a l'utilisateur de lecteur d'ecran que les fleches,
+         Home, End et Espace agissent. Sans ce bloc, Espace faisait defiler. */
+      var next = null;
+      if (e.key === 'ArrowRight') next = links[(i + 1) % links.length];
+      else if (e.key === 'ArrowLeft') next = links[(i - 1 + links.length) % links.length];
+      else if (e.key === 'Home') next = links[0];
+      else if (e.key === 'End') next = links[links.length - 1];
+      else if (e.key === ' ' || e.key === 'Spacebar' || e.key === 'Enter') next = a;
+      if (!next) return;
       e.preventDefault();
-      var next = links[(i + step + links.length) % links.length];
       show(next.getAttribute('href').slice(1), true);
       history.replaceState(null, '', next.getAttribute('href'));
     });
@@ -625,9 +679,11 @@ document.documentElement.classList.remove('no-js');
      la section visee est encore masquee au moment du saut, donc le navigateur ne defile
      nulle part. On remet la page en haut une fois l'onglet affiche. */
   window.addEventListener('hashchange', function(){
-    if (show(location.hash.slice(1))) window.scrollTo(0, 0);
+    show(location.hash.slice(1));
   });
-  if (location.hash) show(location.hash.slice(1));
+  /* Poser l'etat des le chargement : sans cet appel, les cinq onglets restent
+     tous atteignables par tabulation jusqu'au premier clic. */
+  show(location.hash.slice(1)) || show('about');
 })();
 </script>
 

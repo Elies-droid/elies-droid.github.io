@@ -18,10 +18,15 @@ desktop.ini
 # Le memoire contient 16 liens vers un Drive prive (contrat de prestation, funnel CRM,
 # avis de valeur proprietaire, tableaux de bord KPI Hostaway) et les chiffres internes
 # de Conciergerie Solea. A ne publier qu'apres validation explicite d'Elies.
-papers/*.pdf
+# Les SOURCES ne sont jamais publiees. Les PDF de papers/, eux, le sont :
+# les exclure en bloc faisait echouer en silence la publication d'une note
+# (git add ne disait rien, et le site servait un 404).
 papers/*.docx
-# Version publique du memoire : liens vers le Drive prive supprimes (source + relations).
-!papers/memoire-vae-escaet-mlayah-elies.pdf
+papers/*.doc
+papers/*.odt
+# Rappel : avant de publier un PDF dans papers/, verifier qu'il ne contient
+# aucun lien vers un espace prive ni de donnee client. Le memoire a du etre
+# expurge de 16 liens Drive avant sa mise en ligne.
 
 # Wallpaper source Unsplash en pleine resolution (6,4 Mo) : seul banner.jpg,
 # redimensionne en 1920 px, est publie.
