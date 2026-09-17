@@ -1,13 +1,14 @@
 # elies-droid.github.io
 
-Site de présentation personnelle d'**Elies Mlayah** : recherche quantitative sur futures
-indiciels CME (MHE Capital) et conseil en investissement et stratégie patrimoniale
-(EM Conseil Invest).
+Site de présentation personnelle d'**Elies Mlayah** : pilotage de gestion et de trésorerie
+des TPE-PME (Boost Pilotage), conseil en investissement et stratégie patrimoniale
+(EM Conseil Invest), vente de solutions logistiques (Certu Systems EMEA) et recherche
+quantitative indépendante.
 
 **En ligne : https://elies-droid.github.io/**
 
-Série de working papers, parcours professionnel, formations et certifications avec les
-justificatifs consultables en PDF.
+Parcours professionnel, formations et certifications avec les justificatifs consultables
+en PDF, série de working papers et mémoire de recherche.
 
 ## Contenu du dépôt
 
@@ -17,6 +18,7 @@ justificatifs consultables en PDF.
 | `photo.png` | Portrait |
 | `banner.jpg` | Fond du bandeau d'en-tête : photographie d'Andre Benz sur Unsplash, recadrée en 1920×600 et atténuée en CSS. La source pleine résolution reste hors du dépôt. |
 | `diplomas/` | Certificats en PDF liés depuis la section Education |
+| `papers/` | Documents publiés, liés depuis Education et Writing. **Les sources `.docx` et les PDF y sont exclus par défaut** dans `.gitignore` ; seul le mémoire expurgé est ré-autorisé nommément |
 | `404.html` | Page d'erreur |
 | `robots.txt`, `sitemap.xml` | Indexation |
 
@@ -55,7 +57,7 @@ section `writing`.
 
 ## Contact
 
-contact@em-conseil-invest.fr · [LinkedIn](https://www.linkedin.com/in/elies-mlayah-69a542246/)
+contact@boostpilotage.fr · [LinkedIn](https://www.linkedin.com/in/elies-mlayah-69a542246/)
 
 ---
 
